@@ -18,7 +18,7 @@ const LoginPage=()=>{
     borderRadius="1.5rem"
     backgroundColor={theme.palette.background.alt}>
         <Typography fontWeight="500" variant="h5" sx={{mb:"1.5rem"}}>
-            Welcome to <em>Blaze!</em> The Socio Blogging Website...
+            Welcome to <em>Blaze! </em> The Socio Blogging Website...
         </Typography>
         <Form />
     </Box>
