@@ -16,7 +16,7 @@ try{
     }=req.body;
     const salt=await bcrypt.genSalt();
     const passwordHash=await bcrypt.hash(password,salt);
-    const newUser=newUser({
+    const newUser=new User({
         firstName,
         lastName,
         email,
