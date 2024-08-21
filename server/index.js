@@ -29,7 +29,7 @@ app.use(morgan("common"));
 app.use(bodyParser.json({limit:"30mb",extended:"true"}));
 app.use(bodyParser.urlencoded({limit:"30mb",extended:"true"}));
 app.use(cors());
-app.use("assets",express.static(path.join(__dirname,'public/assets')));
+app.use("/assets",express.static(path.join(__dirname,'public/assets')));
 
 //File Storage 
 const storage=multer.diskStorage({ 
@@ -38,7 +38,7 @@ const storage=multer.diskStorage({
        },
     filename:function(req,file,cb){
         cb(null,file.originalname);
-    }
+    },
 }
 );
 const upload=multer({storage});
@@ -52,7 +52,13 @@ app.use("/users",userRoutes);
 app.use("/posts",postRoutes);
 //MONGOOSE SETUP
 const PORT=process.env.PORT||6001;
-mongoose.connect(process.env.MONGO_URL).then(()=>{
+mongoose
+.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
     app.listen(PORT,()=>console.log(`Server Port:${PORT}`));
     //Add Data One Time 
     //User.insertMany(users);
