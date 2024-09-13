@@ -29,7 +29,7 @@ const UserWidget=({userId,picturePath})=>{
         setUser(data);
     };
     useEffect(()=>{
-        getUser();
+        getUser();// eslint-disable-next-line
     },[]);
     if(!user){
         return null;
