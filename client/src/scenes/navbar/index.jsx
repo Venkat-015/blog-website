@@ -56,7 +56,7 @@ const Navbar = () => {
             },
           }}
         >
-          Blaze
+          Thought Horizon
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
