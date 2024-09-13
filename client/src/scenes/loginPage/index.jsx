@@ -10,7 +10,7 @@ const LoginPage=()=>{
             <Typography fontWeight="bold"
             fontSize="32px"
             color="primary"
-            >Blaze</Typography>
+            >BlogBlaze</Typography>
     </Box>
     <Box width={isNonMobileScreens?"50%":"93%"} 
     p="2rem"
@@ -18,7 +18,7 @@ const LoginPage=()=>{
     borderRadius="1.5rem"
     backgroundColor={theme.palette.background.alt}>
         <Typography fontWeight="500" variant="h5" sx={{mb:"1.5rem"}}>
-            Welcome to <em>Blaze! </em> The Socio Blogging Website...
+            Welcome to <strong>BlogBlaze </strong>  The Socio Blogging Website...
         </Typography>
         <Form />
     </Box>

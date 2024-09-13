@@ -35,7 +35,7 @@ const Navbar = () => {
   const theme = useTheme();
   const neutralLight = theme.palette.neutral.light;
   const dark = theme.palette.neutral.dark;
-  const background = theme.palette.background.default;
+  const background = theme.palette.background.default;// eslint-disable-next-line
   const primaryLight = theme.palette.primary.light;
   const alt = theme.palette.background.alt;
 
@@ -51,12 +51,12 @@ const Navbar = () => {
           onClick={() => navigate("/home")}
           sx={{
             "&:hover": {
-              color: primaryLight,
+              color: theme.palette.mode === 'dark' ? theme.palette.primary.light : 'black',
               cursor: "pointer",
             },
           }}
         >
-          Thought Horizon
+          BlogBlaze
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween

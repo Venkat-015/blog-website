@@ -46,6 +46,7 @@ const Form=()=>{
    const {palette}=useTheme();
    const dispatch=useDispatch();
    const navigate=useNavigate();
+   const theme=useTheme();
    const isNonMobile=useMediaQuery("(min-width:600px)");
    const isLogin = pageType === "login";
    const isRegister = pageType === "register";
@@ -228,6 +229,7 @@ const Form=()=>{
                     p:"1rem",
                     m:"2rem 0",
                     backgroundColor:palette.primary.main,
+                    border:"2px black solid",
                     color:palette.background.alt,
                     "&:hover":{color:palette.primary.main},
                   }}
@@ -244,7 +246,8 @@ const Form=()=>{
                     color:palette.primary.main,
                     "&:hover":{
                         cursor:"pointer",
-                        color:palette.primary.light,
+                        //color:palette.primary.light,
+                        color: theme.palette.mode === 'dark' ? theme.palette.primary.light : 'black',
                     }
                   }}
                 >
