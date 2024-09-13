@@ -65,7 +65,7 @@ const UserWidget=({userId,picturePath})=>{
                             }}
                             >{firstName} {lastName}
                             </Typography>
-                              <Typography color={medium}>{friends.length}</Typography>
+                              <Typography color={medium}>{friends.length} friends</Typography>
                         </Box>
                     </FlexBetween>
                     <ManageAccountsOutlined />
@@ -73,11 +73,11 @@ const UserWidget=({userId,picturePath})=>{
                     <Divider />
                     {/*Second Row */}
                     <Box p="1 rem 0">
-                        <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
+                        <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem" mt="0.1rem">
                             <LocationOnOutlined fontSize="large" sx={{color:main}}/>
                             <Typography color={medium}> {location}</Typography>
                         </Box>
-                        <Box display="flex" alignItems="center" gap="1rem">
+                        <Box display="flex" alignItems="center" gap="1rem" mb="0.1rem">
                             <WorkOutlineOutlined fontSize="large" sx={{color:main}}/>
                             <Typography color={medium}> {occupation}</Typography>
                         </Box>
@@ -85,13 +85,13 @@ const UserWidget=({userId,picturePath})=>{
                     <Divider />
                     {/* Third Row*/}
                     <Box pd="1rem 0">
-                        <FlexBetween mb="0.5rem">
+                        <FlexBetween gap="1rem" mb="0.5rem" mt="0.1rem">
                             <Typography color={medium}>
                                 Who's viewed your profile?
                             </Typography>
                             <Typography color={main} fontWeight="500">{viewedProfile}</Typography>
                         </FlexBetween>
-                        <FlexBetween>
+                        <FlexBetween mb="0.1rem">
                         <Typography color={medium}>
                                 Impressions of your posts
                             </Typography>
@@ -101,7 +101,7 @@ const UserWidget=({userId,picturePath})=>{
                     <Divider />
                     {/* Fourth Row*/}
                     <Box pd="1rem 0">
-                        <Typography fontSize="1rem" color={main} fontWeight="500" mb="1rem">Social Profiles</Typography>
+                        <Typography fontSize="1rem" color={main} fontWeight="500" mt="0.1rem" mb="0.8rem">Social Profiles</Typography>
                         
                         <FlexBetween gap="1rem" mb="0.5rem">
                             <FlexBetween gap="1rem">

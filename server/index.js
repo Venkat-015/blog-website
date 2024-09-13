@@ -29,7 +29,7 @@ app.use(morgan("common"));
 app.use(bodyParser.json({limit:"30mb",extended:"true"}));
 app.use(bodyParser.urlencoded({limit:"30mb",extended:"true"}));
 app.use(cors());
-app.use("/assets",express.static(path.join(__dirname,'public/assets')));
+app.use("/assets",express.static(path.join(__dirname,"public/assets")));
 
 //File Storage 
 const storage=multer.diskStorage({ 
@@ -54,9 +54,9 @@ app.use("/posts",postRoutes);
 const PORT=process.env.PORT||6001;
 mongoose
 .connect(process.env.MONGO_URL
-    //,{
-    //useNewUrlParser: true,
-   //useUnifiedTopology: true,
+   // ,{
+   // useNewUrlParser: true,
+  // useUnifiedTopology: true,
 //}
  )
   .then(() => {

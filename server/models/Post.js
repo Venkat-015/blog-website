@@ -23,7 +23,7 @@ const postSchema=mongoose.Schema({
     comments:{
         type:Array,
         default:[],
-    }
+    },
 },{timestamps:true});
 const Post=mongoose.model("Post",postSchema);
 export default Post;

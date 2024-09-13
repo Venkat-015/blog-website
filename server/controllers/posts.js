@@ -14,8 +14,8 @@ export const createPost=async(req,res)=>{
             userPicturePath:user.picturePath,
             picturePath,
             likes:{},
-            comments:[]
-        })
+            comments:[],
+        });
         await newPost.save();
         const post=await Post.find();
         res.status(201).json(post);
@@ -23,7 +23,7 @@ export const createPost=async(req,res)=>{
     catch(err){
         res.status(409).json({message:err.message});
     }
-}
+};
 //read
 export const getFeedPosts=async(req,res)=>{
     try{
@@ -32,7 +32,7 @@ export const getFeedPosts=async(req,res)=>{
     catch(err){
         res.status(404).json({message:err.message});
     }
-}
+};
 export const getUserPosts=async(req,res)=>{
     try{
         const {userId}=req.params;
@@ -42,7 +42,7 @@ export const getUserPosts=async(req,res)=>{
     catch(err){
         res.status(404).json({message:err.message});
     }
-}
+};
 //update
 export const likePosts=async(req,res)=>{
     try{
