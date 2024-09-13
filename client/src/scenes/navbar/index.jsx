@@ -56,7 +56,7 @@ const Navbar = () => {
             },
           }}
         >
-          Sociopedia
+          Blaze
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
