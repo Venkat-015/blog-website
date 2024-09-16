@@ -89,7 +89,7 @@ const UserWidget=({userId,picturePath})=>{
                             <Typography color={medium}>
                                 Who's viewed your profile?
                             </Typography>
-                            <Typography color={main} fontWeight="500">{viewedProfile}{Math.floor(Math.random()*10000)}</Typography>
+                            <Typography color={main} fontWeight="500">{viewedProfile}<Typography fontWeight="500" fontSize="300"> {Math.floor(Math.random()*10000)}</Typography></Typography>
                         </FlexBetween>
                         <FlexBetween mb="0.1rem">
                         <Typography color={medium}>
