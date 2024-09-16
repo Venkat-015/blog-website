@@ -12,7 +12,7 @@ import { persistStore,
   PAUSE,
   PERSIST,
   PURGE,
-  REGISTER
+  REGISTER,
  } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';

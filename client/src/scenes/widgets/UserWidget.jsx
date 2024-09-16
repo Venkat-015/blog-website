@@ -29,8 +29,8 @@ const UserWidget=({userId,picturePath})=>{
         setUser(data);
     };
     useEffect(()=>{
-        getUser();// eslint-disable-next-line
-    },[]);
+        getUser();
+    },[]);// eslint-disable-line react-hooks/exhaustive-deps
     if(!user){
         return null;
     }
@@ -41,14 +41,14 @@ const UserWidget=({userId,picturePath})=>{
         occupation,
         viewedProfile,
         impressions,
-        friends
+        friends,
     }=user;
     return(
         <WidgetWrapper>
             <FlexBetween
                 gap="0.5rem"
                 pb="1.1rem"
-                onClick={()=>navigate(`profile/${userId}`)}
+                onClick={()=>navigate(`/profile/${userId}`)}
                 >
                     <FlexBetween gap="1rem">
                         <UserImage image={picturePath}/>
@@ -61,7 +61,7 @@ const UserWidget=({userId,picturePath})=>{
                                 "&:hover":{
                                     color:palette.primary.light,
                                     cursor:"pointer"
-                                }
+                                },
                             }}
                             >{firstName} {lastName}
                             </Typography>
@@ -84,12 +84,12 @@ const UserWidget=({userId,picturePath})=>{
                     </Box>
                     <Divider />
                     {/* Third Row*/}
-                    <Box pd="1rem 0">
+                    <Box p="1rem 0">
                         <FlexBetween gap="1rem" mb="0.5rem" mt="0.1rem">
                             <Typography color={medium}>
                                 Who's viewed your profile?
                             </Typography>
-                            <Typography color={main} fontWeight="500">{viewedProfile}</Typography>
+                            <Typography color={main} fontWeight="500">{viewedProfile}{Math.floor(Math.random()*10000)}</Typography>
                         </FlexBetween>
                         <FlexBetween mb="0.1rem">
                         <Typography color={medium}>
@@ -100,7 +100,7 @@ const UserWidget=({userId,picturePath})=>{
                     </Box>
                     <Divider />
                     {/* Fourth Row*/}
-                    <Box pd="1rem 0">
+                    <Box p="1rem 0">
                         <Typography fontSize="1rem" color={main} fontWeight="500" mt="0.1rem" mb="0.8rem">Social Profiles</Typography>
                         
                         <FlexBetween gap="1rem" mb="0.5rem">
@@ -128,6 +128,6 @@ const UserWidget=({userId,picturePath})=>{
                     </Box>
             
         </WidgetWrapper>
-    )
-}
+    );
+};
 export default UserWidget;

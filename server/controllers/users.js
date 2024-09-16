@@ -26,7 +26,7 @@ export const getUserFriends=async(req,res)=>{
     catch(err){
         res.status(404).json({message:err.messsage});
     }
-}
+};
 //UPDATE
 export const addRemoveFriends=async(req,res)=>{
     try{
@@ -55,4 +55,4 @@ export const addRemoveFriends=async(req,res)=>{
     catch(err){
         res.status(404).json({message:err.messsage});
     }
-}
+};

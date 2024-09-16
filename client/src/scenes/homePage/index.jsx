@@ -6,7 +6,8 @@ import MyPostWidget from "scenes/widgets/MypostWidget";
 const HomePage=()=>{
     const isNonMobileScreens=useMediaQuery("(min-width:1000px)");
     const {_id,picturePath}=useSelector((state)=>state.user);
-    return (<Box>
+    return (
+        <Box>
         <Navbar />
         <Box
             width="100%"

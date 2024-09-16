@@ -248,7 +248,7 @@ const Form=()=>{
                         cursor:"pointer",
                         //color:palette.primary.light,
                         color: theme.palette.mode === 'dark' ? theme.palette.primary.light : 'black',
-                    }
+                    },
                   }}
                 >
                       {isLogin?"Don't have an account? Sign Up here.":"Already have an account? Login here."}
