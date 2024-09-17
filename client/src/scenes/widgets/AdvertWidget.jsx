@@ -29,6 +29,6 @@ const AdvertWidget=()=>{
                 Your pathway to stunning and immaculate beauty and made sure your skin is exfolating skin and shining like light.
             </Typography>
         </WidgetWrapper>
-    )
-}
+    );
+};
 export default AdvertWidget;

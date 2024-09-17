@@ -60,7 +60,7 @@ const UserWidget=({userId,picturePath})=>{
                             sx={{
                                 "&:hover":{
                                     color:palette.primary.light,
-                                    cursor:"pointer"
+                                    cursor:"pointer",
                                 },
                             }}
                             >{firstName} {lastName}

@@ -24,7 +24,7 @@ const PostsWidget=({userId,isProfile=false})=>{
         }
     );
     const data=await response.json();
-    dispatch(setPosts({post:data}));
+    dispatch(setPosts({posts:data}));
  };
  useEffect(()=>{
     if(isProfile){
@@ -46,7 +46,7 @@ const PostsWidget=({userId,isProfile=false})=>{
             picturePath,
             userPicturePath,
             likes,
-            comments
+            comments,
         })=>(
             <PostWidget 
             key={_id}
