@@ -8,7 +8,7 @@ const FriendListWidget=({userId})=>{
 const dispatch=useDispatch();
 const {palette}=useTheme();
 const token=useSelector((state)=>state.token);
-const friends=useSelector((state)=>state.user.friends);
+const friends=useSelector((state)=>state.user.friends||[]);
 
 const getFriends=async()=>{
     const response=await fetch(
@@ -19,8 +19,12 @@ const getFriends=async()=>{
         }
     );
     const data=await response.json();
-    dispatch(setFriends({friends:data}));
-};
+    if (Array.isArray(data)) {
+        dispatch(setFriends({ friends: data }));
+      } else {
+        dispatch(setFriends({ friends: [] }));
+      }
+    };
 useEffect(()=>{
     getFriends();
 },[]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -35,7 +39,7 @@ return(
     >
         Friend List </Typography>
         <Box display="flex" flexDirection="column" gap="1.5rem" >
-            {friends.map((friend)=>(
+            {Array.isArray(friends) &&friends.map((friend)=>(
                 <Friend 
                 key={friend._id}
                 friendId={friend._id}

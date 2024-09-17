@@ -5,7 +5,7 @@ const initialState={
     user:null,
     token:null,
     posts:[],
-    //friends:[],
+    friends:[],
     //friends : useSelector((state) => state.user.friends || [])
 };
 
