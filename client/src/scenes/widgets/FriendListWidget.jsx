@@ -47,6 +47,6 @@ return(
 
         </Box>
   </WidgetWrapper>  
-)
+);
 };
 export default FriendListWidget;

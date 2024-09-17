@@ -8,7 +8,7 @@ import UserImage from "./userimage";
 const Friend=({friendId,name,subtitle,userPicturePath})=>{
     const dispatch=useDispatch();
     const navigate=useNavigate();
-    const{_id}=useSelector((state)=>state.user);
+    const{ _id }=useSelector((state)=>state.user);
     const token=useSelector((state)=>state.token);
     const friends=useSelector((state)=>state.user.friends);
     const {palette}=useTheme();
@@ -16,7 +16,8 @@ const Friend=({friendId,name,subtitle,userPicturePath})=>{
     const primaryDark=palette.primary.dark;
     const main=palette.neutral.main;
     const medium=palette.neutral.medium;
-    const isFriend=friends.find((friend)=>friend._id===friendId);
+    const isFriend=friends.find((friend)=>friend._id === friendId);
+
     const patchFriend=async()=>{
         const response=await fetch(`http://localhost:3001/users/${_id}/${friendId}`,
             {method:"PATCH",
@@ -45,8 +46,8 @@ const Friend=({friendId,name,subtitle,userPicturePath})=>{
                   sx={{
                     "&:hover":{
                         color:palette.primary.light,
-                        cursor:"pointer"
-                    }
+                        cursor:"pointer",
+                    },
                   }}
                   >
                        {name}

@@ -1,11 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+//import { useSelector } from "react-redux";
 const initialState={
     mode:"light",
     user:null,
     token:null,
     posts:[],
     //friends:[],
+    //friends : useSelector((state) => state.user.friends || [])
 };
+
 
 export const authSlice=createSlice(
     {
@@ -28,7 +31,7 @@ export const authSlice=createSlice(
                     state.user.friends=action.payload.friends;
                     }
                 else
-                {console.error("User friends non-existent :( ")};
+                {console.error("User friends non-existent :( ");}
             },
             setPosts:(state,action)=>{
                 state.posts=action.payload.posts;
