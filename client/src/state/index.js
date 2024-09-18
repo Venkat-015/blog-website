@@ -1,15 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-//import { useSelector } from "react-redux";
 const initialState={
     mode:"light",
     user:null,
     token:null,
     posts:[],
-    friends:[],
-    //friends : useSelector((state) => state.user.friends || [])
+    //friends:[],
 };
-
-
 export const authSlice=createSlice(
     {
         name:"auth",
