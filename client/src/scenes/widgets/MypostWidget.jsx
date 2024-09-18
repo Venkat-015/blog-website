@@ -86,7 +86,7 @@ return(
                                 >
                                     <input {...getInputProps()} />
                                     {!image?(
-                                        <p>Add Image Here </p>
+                                        <Typography component="div">Add Image Here </Typography>
                                     ):(
                                         <FlexBetween>
                                             <Typography>

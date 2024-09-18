@@ -181,7 +181,7 @@ const Form=()=>{
                                 >
                                     <input {...getInputProps()} />
                                     {!values.picture?(
-                                        <p>Add Profile Picture </p>
+                                        <Typography component="div">Add Profile Picture </Typography>
                                     ):(
                                         <FlexBetween>
                                             <Typography>
