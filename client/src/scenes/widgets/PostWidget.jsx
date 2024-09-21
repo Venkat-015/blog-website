@@ -132,10 +132,10 @@ return(
           disabled={!addComments}
           onClick={patchComment}
           sx={{
-              "&:hover":{cursor:"pointer",color:palette.mode === 'dark' ?palette.primary.alt : 'black',
-            backgroundColor:palette.mode==='dark'?'lightwhite':palette.primary.default,
+              "&:hover":{color:palette.mode === 'dark' ?palette.primary.alt : 'black',
+            backgroundColor:palette.mode==='dark'?'lightwhite':palette.primary.default,},
             borderRadius: "3rem",
-            fontSize: "0.65rem"}
+            fontSize: "0.65rem"
           }}
         >
           Comment

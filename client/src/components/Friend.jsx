@@ -52,7 +52,8 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
             fontWeight="500"
             sx={{
               "&:hover": {
-                color: palette.primary.light,
+                color:palette.mode === 'dark' ?palette.primary.light : palette.primary.dark,
+                backgroundColor:palette.mode==='dark'?'lightwhite':palette.primary.alt,
                 cursor: "pointer",
               },
             }}

@@ -88,3 +88,30 @@ try {
   res.status(404).json({ message: err.message });
 }
 };
+//delete
+export const deletePost = async (req, res) => {
+  try {
+    const { postId } = req.params; // Get the post ID from the request parameters
+    const { userId } = req.body;   // Assume userId comes from the body or session (depends on your auth setup)
+
+    // Find the post by postId
+    const post = await Post.findById(postId);
+
+    // Check if the post exists
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+
+    // Check if the userId matches the post's userId (i.e., ensure the user owns the post)
+    if (post.userId.toString() !== userId) {
+      return res.status(403).json({ message: "You can only delete your own posts" });
+    }
+
+    // If the user owns the post, delete it
+    await Post.findByIdAndDelete(postId);
+
+    res.status(200).json({ message: "Post deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
