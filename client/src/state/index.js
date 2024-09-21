@@ -29,7 +29,16 @@ export const authSlice=createSlice(
                 {console.error("User friends non-existent :( ");}
             },
             setPosts:(state,action)=>{
-                state.posts=action.payload.posts;
+                switch (action.type) {
+                    case "SET_POSTS":
+                      // Replace existing posts without duplication
+                      return {
+                        ...state,
+                        posts: action.payload.posts, // or use logic to merge posts
+                      };
+                    default:
+                      return state;
+                  }
             },
             setPost:(state,action)=>{
                 const updatedPosts=state.posts.map((post)=>{
