@@ -19,10 +19,6 @@ const UserWidget=({userId,picturePath})=>{
     const dark=palette.neutral.dark;
     const medium=palette.neutral.medium;
     const main=palette.neutral.main;
-    const redirectToExternalUrl = (url) => {
-        const domain = url.replace(/^(?:http?:\/\/)?(?:www\.)?/i, ''); // Remove protocol and www
-        window.open(`http://${domain}`, '_blank');
-      };
     const getUser=async()=>{
         const response=await fetch(`http://localhost:3001/users/${userId}`,{
             method:"GET",
@@ -45,8 +41,6 @@ const UserWidget=({userId,picturePath})=>{
         viewedProfile,
         impressions,
         friends,
-        twitter,
-        linkedin,
     }=user;
     return(
         <WidgetWrapper>
@@ -111,7 +105,7 @@ const UserWidget=({userId,picturePath})=>{
                     <Box p="1rem 0">
                         <Typography fontSize="1rem" color={main} fontWeight="500" mt="0.1rem" mb="0.8rem">Social Profiles</Typography>
                         
-                        <FlexBetween gap="1rem" mb="0.5rem"  onClick={() => redirectToExternalUrl(twitter)}  >
+                        <FlexBetween gap="1rem" mb="0.5rem" >
                             <FlexBetween gap="1rem">
                                 <img src="../assets/twitter.png" alt="twitter" />
                                 <Box>
@@ -122,7 +116,7 @@ const UserWidget=({userId,picturePath})=>{
                             <EditOutlined sx={{color:main}}/>
                         </FlexBetween>
 
-                        <FlexBetween gap="1rem" onClick={() => redirectToExternalUrl(linkedin)}>
+                        <FlexBetween gap="1rem">
                             <FlexBetween gap="1rem">
                                 <img src="../assets/linkedin.png" alt="linkedin" />
                                 <Box>

@@ -29,6 +29,18 @@ const UserSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    linkedin: {
+      type: String,
+      // required: true,
+      min: 2,
+      max: 50,
+    },
+    twitter: {
+      type: String,
+      // required: true,
+      min: 2,
+      max: 50,
+    },
     friends: {
       type: Array,
       default: [],
