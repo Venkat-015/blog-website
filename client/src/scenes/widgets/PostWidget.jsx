@@ -1,11 +1,11 @@
 import { ChatBubbleOutlineOutlined,FavoriteBorderOutlined,FavoriteOutlined,ShareOutlined } from "@mui/icons-material";
-import { Box,IconButton,Divider,Typography,useTheme} from "@mui/material";
+import { Box,IconButton,Divider,Typography,useTheme,InputBase,Button} from "@mui/material";
 import FlexBetween from "components/flexbetween";
 import Friend from "components/Friend";
 import WidgetWrapper from "components/widgetwrapper";
 import { useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
-import { setPost } from "state";
+import { setComments, setPost } from "state";
 const PostWidget=({
             postId,
             postUserId,
@@ -18,6 +18,7 @@ const PostWidget=({
             comments,
 })=>{
     const[isComments,setIsComments]=useState(false);
+    const[addComments,setAddComments]=useState("");
     const dispatch=useDispatch();
     const token=useSelector((state)=>state.token);
     const loggedInUserId=useSelector((state)=>state.user._id);
@@ -37,6 +38,28 @@ const patchLike=async()=>{
     const updatedPost=await response.json();
     dispatch(setPost({post:updatedPost}));
 };
+const patchComment=async()=>{
+    try{const response=await fetch(`http://localhost:3001/posts/${postId}/comment`,{
+        method:"PATCH",
+        headers:{Authorization:`Bearer ${token}`,
+    "Content-Type":"application/json",},
+    body:JSON.stringify({comment:addComments}),
+    });
+    if (!response.ok) {
+        console.error(`Error: ${response.status} - ${response.statusText}`);
+        // Handle the error, show a message, or return early
+        return;
+      }
+    const {comments}=await response.json();
+    dispatch(setComments({postId,comments:comments}));
+    setAddComments("");
+
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle the error
+    }
+};
+
 return(
     <WidgetWrapper m="2rem 0">
         <Friend
@@ -90,6 +113,34 @@ return(
         </FlexBetween>
         {isComments&&(
             <Box mt="0.5rem">
+                <FlexBetween>
+        <InputBase
+        placeholder="Add a comment..."
+        onChange={(e) => setAddComments(e.target.value)}
+        value={addComments}
+        sx={{
+          width: "100%",
+          backgroundColor: palette.neutral.light,
+          borderRadius: "2rem",
+          padding: "0.5rem 1rem",
+          fontSize: "0.9rem",
+          mb: "0.5rem",
+          mr:"0.5rem"
+        }}
+      />
+      <Button
+          disabled={!addComments}
+          onClick={patchComment}
+          sx={{
+            color:palette.mode === 'dark' ?palette.primary.alt : 'black',
+            backgroundColor:palette.mode==='dark'?'lightwhite':palette.primary.default,
+            borderRadius: "3rem",
+            fontSize: "0.7rem"
+          }}
+        >
+          Reply
+        </Button>
+        </FlexBetween>
                 {comments.map((comment,i)=>(
                     <Box key={`${name}-${i}`}>
                         <Divider />

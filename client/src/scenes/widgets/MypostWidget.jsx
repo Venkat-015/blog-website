@@ -116,7 +116,8 @@ return(
                 <ImageOutlined sx={{color:mediumMain}}/>
                 <Typography 
                 color={mediumMain}
-                sx={{"&:hover":{cursor:"pointer",color:medium}}}
+                sx={{"&:hover":{cursor:"pointer",color:palette.mode === 'dark' ?"white" : palette.primary.dark,
+                }}}
                 >
                     Image
                 </Typography>
@@ -125,15 +126,15 @@ return(
                 <>
                 <FlexBetween gap="0.25rem">
                     <GifBoxOutlined sx={{color:mediumMain}}/>
-                    <Typography color={mediumMain}>Clip</Typography>
+                    <Typography color={palette.mode === 'dark' ?"white" : palette.primary.dark}>Clip</Typography>
                 </FlexBetween>
                 <FlexBetween gap="0.25rem">
                     <AttachFileOutlined sx={{color:mediumMain}}/>
-                    <Typography color={mediumMain}>Attachment</Typography>
+                    <Typography color={palette.mode === 'dark' ?"white" : palette.primary.dark}>Attachment</Typography>
                 </FlexBetween>
                 <FlexBetween gap="0.25rem">
                     <MicOutlined sx={{color:mediumMain}}/>
-                    <Typography color={mediumMain}>Audio</Typography>
+                    <Typography color={palette.mode === 'dark' ?"white" : palette.primary.dark}>Audio</Typography>
                 </FlexBetween>
                 </>
             ):(<FlexBetween gap="0.25rem">
@@ -144,7 +145,7 @@ return(
                 onClick={handlePost}
                 sx={{
                     color:palette.mode === 'dark' ?palette.primary.alt : 'black',
-                    backgroundColor:palette.mode==='dark'?'white':palette.primary.default,
+                    backgroundColor:palette.mode==='dark'?'lightwhite':palette.primary.default,
                     borderRadius:"3rem"
                 }}
                 >

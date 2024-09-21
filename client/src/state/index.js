@@ -4,6 +4,8 @@ const initialState={
     user:null,
     token:null,
     posts:[],
+    image_url:"",
+    url:"",
 };
 export const authSlice=createSlice(
     {
@@ -28,6 +30,17 @@ export const authSlice=createSlice(
                 else
                 {console.error("User friends non-existent :( ");}
             },
+            setComments:(state,action)=>{
+                const postId=action.payload.postId;
+                const addComments=action.payload.comments;
+                const updatedPosts=state.posts.map((post)=>{
+                    if(post._id===postId){
+                        post.comments=addComments;
+                    }
+                    return post;
+                });
+                state.posts=updatedPosts;
+            },
             setPosts:(state,action)=>{
                 state.posts=action.payload.posts;
             },
@@ -38,8 +51,11 @@ export const authSlice=createSlice(
                 });
                 state.posts=updatedPosts;
             },
+            setImageUrl:(state,action)=>{
+                state.image_url=action.payload.url;
+            },
         },
     }
 );
-export const {setMode,setLogin,setLogout,setFriends,setPosts,setPost}=authSlice.actions;
+export const {setMode,setLogin,setLogout,setFriends,setComments,setPosts,setPost,setImageUrl}=authSlice.actions;
 export default authSlice.reducer;
