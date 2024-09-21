@@ -4,7 +4,6 @@ const initialState={
     user:null,
     token:null,
     posts:[],
-    //friends:[],
 };
 export const authSlice=createSlice(
     {
