@@ -38,7 +38,7 @@ export const users = [
     friends: [],
     location: "New York, CA",
     occupation: "Degenerate",
-    viewedProfile: 12351,
+    viewedProfile: 22351,
     impressions: 55555,
     createdAt: 1595589072,
     updatedAt: 1595589072,
