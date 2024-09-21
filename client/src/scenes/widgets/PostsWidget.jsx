@@ -9,7 +9,6 @@ const PostsWidget=({userId,isProfile=false})=>{
  const token=useSelector((state)=>state.token);
 
  const getPosts=async()=>{
-    dispatch(setPosts({ posts: [] }));
     const response=await fetch("http://localhost:3001/posts",{
         method:"GET",
         headers:{Authorization:`Bearer ${token}`},
@@ -33,7 +32,7 @@ const PostsWidget=({userId,isProfile=false})=>{
     }else{
         getPosts();
     }
- },[isProfile, userId, token]);// eslint-disable-line react-hooks/exhaustive-deps
+ },[]);// eslint-disable-line react-hooks/exhaustive-deps
  return(
     <>
     {posts.map(
