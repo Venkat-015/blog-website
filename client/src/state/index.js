@@ -51,11 +51,15 @@ export const authSlice=createSlice(
                 });
                 state.posts=updatedPosts;
             },
+            removePost: (state, action) => {
+                const postId = action.payload.postId;
+                state.user.posts = state.user.posts.filter(post => post._id !== postId);
+              },
             setImageUrl:(state,action)=>{
                 state.image_url=action.payload.url;
             },
         },
     }
 );
-export const {setMode,setLogin,setLogout,setFriends,setComments,setPosts,setPost,setImageUrl}=authSlice.actions;
+export const {setMode,setLogin,setLogout,setFriends,setComments,setPosts,setPost,setImageUrl,removePost}=authSlice.actions;
 export default authSlice.reducer;
